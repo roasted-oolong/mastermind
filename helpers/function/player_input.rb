@@ -6,10 +6,10 @@ module PlayerInput
         puts "Colors: #{GameConfig::VALID_COLORS.join(', ')}"
         input = gets.chomp.downcase.split
 
-        valid_move?(input)
+        valid_input?(input)
     end
 
-    def self.valid_move?(input)
+    def self.valid_input?(input)
         invalid_colors = input.reject { |color| GameConfig::VALID_COLORS.include?(color) }
 
         case invalid_input
