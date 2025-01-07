@@ -1,4 +1,4 @@
-require_relative '/config/game_config'
+require_relative '../config/game_config'
 
 module PlayerInput
     def self.get
