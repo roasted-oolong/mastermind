@@ -8,7 +8,9 @@ require_relative 'function/announce_results'
 
 class Game
     def initialize
-        #initialize variables
+        @secret_code = GenerateCode.generate(GameConfig::VALID_COLORS, GameConfig::CODE_LENGTH)
+        @guess_count = 0
+        @max_guesses = GameConfig::MAX_GUESSES
     end
 
     def start
