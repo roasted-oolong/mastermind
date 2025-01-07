@@ -1,5 +1,9 @@
+require_relative './config/game_config'
+
 module PlayerInput
-    puts 'Enter code (example: green blue pink red)'
-    puts 'Colors: red, green, blue, yellow, orange, pink'
-    input = gets.chomp.map(&:downcase)
+    def self.get
+        puts 'Enter code (example: green blue pink red)'
+        puts "Colors: #{GameConfig::VALID_COLORS.join(', ')}"
+        input = gets.chomp.downcase.split
+    end
 end
