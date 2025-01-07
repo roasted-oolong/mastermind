@@ -1,4 +1,4 @@
-require_relative './config/game_config'
+require_relative '/config/game_config'
 
 module PlayerInput
     def self.get
@@ -13,14 +13,15 @@ module PlayerInput
         if input.length != GameConfig::CODE_LENGTH
             puts "Error: Please enter #{GameConfig::CODE_LENGTH} colors to continue."
             return false
+        end
 
         invalid_colors = input.reject { |color| GameConfig::VALID_COLORS.include?(color) }
-        invalid_colors.any?
+        if invalid_colors.any?
             puts "Error: Invalid colors. Please input a code from these colors: #{GameConfig::VALID_COLORS.join(', ')}."
             return false
-        else 
-            puts 'Processing...'
-            return true
         end
+
+        puts 'Processing...'
+        return true
     end
 end
