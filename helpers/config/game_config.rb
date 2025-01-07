@@ -1,0 +1,2 @@
+#module
+#sets game rules
