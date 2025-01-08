@@ -5,22 +5,21 @@ module CodeFeedback
         guess_leftover = []
         code_leftover = []
 
-        def find_exact_matches
-            guess.each_with_index do |color, index|
-                if color == secret_code[index]
-                    exact_matches += 1
-                else
-                    guess_leftover << color
-                    code_leftover << secret_code[index]
-                end
+        #Find exact matches
+        guess.each_with_index do |color, index|
+            if color == secret_code[index]
+                exact_matches += 1
+            else
+                guess_leftover << color
+                code_leftover << secret_code[index]
             end
         end
 
-        def find_color_matches
-            guess_leftover.each do |color|
-                if code_leftover.include?(color)
-                    color_matches += 1
-                end
+        #Find color matches
+        guess_leftover.each do |color|
+            if code_leftover.include?(color)
+                color_matches += 1
+                code_leftover.delete_at(code_leftover.index(color)) #prevents duplicates
             end
         end
 
