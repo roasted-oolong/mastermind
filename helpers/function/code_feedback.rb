@@ -6,7 +6,9 @@ module CodeFeedback
         guess.each_with_index do |color, index|
             if color == secret_code[index]
                 exact_matches += 1
-            else secret_code.include?(color) && secret_code[index] != color
+            end
+            
+            if secret_code.include?(color) && secret_code[index] != color
                 color_matches += 1
             end
         end
