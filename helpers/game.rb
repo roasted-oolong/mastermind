@@ -13,19 +13,27 @@ class Game
         @guess_count = 0
         @max_guesses = GameConfig::MAX_GUESSES
         @last_guess = nil
+        @player_role = nil
     end
 
     def play
         puts "Let's start a game of Mastermind ✨"
-        puts "I've though of a 4-color code. Try guessing my code!"
-        
-        until game_over?
-            guess = PlayerInput.get_code
-            @last_guess = guess
-            @guess_count += 1
+        @player_role = PlayerInput.get_role
 
-            feedback = CodeFeedback.call(guess, @secret_code)
-            AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
+        case @player_role
+        when 'breaker'
+            puts "Breaker it is. I've though of a 4-color code. Guess the code!"
+            
+            until game_over?
+                guess = PlayerInput.get_code
+                @last_guess = guess
+                @guess_count += 1
+
+                feedback = CodeFeedback.call(guess, @secret_code)
+                AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
+            end
+        when 'maker'
+            puts "Feature coming soon!"
         end
     end
 
