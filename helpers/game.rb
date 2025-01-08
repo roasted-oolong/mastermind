@@ -27,11 +27,10 @@ class Game
             
             until game_over?
                 puts "Enter your guess"
-                guess = PlayerInput.get_code
-                @last_guess = guess
+                @last_guess = PlayerInput.get_code
                 @guess_count += 1
 
-                feedback = CodeFeedback.call(guess, @secret_code)
+                feedback = CodeFeedback.call(@last_guess, @secret_code)
                 AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
             end
         when 'maker'

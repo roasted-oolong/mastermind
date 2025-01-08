@@ -1,2 +1,3 @@
-#Module
-#Computer deploys strategy to guess secret code
+module GuessCode
+    def run(valid_colors)
+        
