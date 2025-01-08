@@ -19,7 +19,7 @@ class Game
 
     def play
         puts "Let's start a game of Mastermind ✨"
-        @player_role = PlayerInput.get_role
+        @player_role = PlayerInput.choose_role
 
         case @player_role
         when 'breaker'

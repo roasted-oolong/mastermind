@@ -24,7 +24,7 @@ module PlayerInput
         return true
     end
 
-    def self.get_role
+    def self.choose_role
         puts "Would you like to be the code breaker or maker?"
         puts "Type 'breaker' or 'maker'"
         player_role = gets.chomp.downcase
