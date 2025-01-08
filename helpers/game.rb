@@ -31,4 +31,8 @@ class Game
     def game_over?
         return false unless @guess_count >= @max_guesses || @secret_code == @last_guess
     end
+
+    def end
+        AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
+    end
 end
