@@ -14,6 +14,16 @@ class Game
     end
 
     def start
-        #game flow
+        puts "Let's start a game of Mastermind ✨"
+        puts "I've though of a 4-color code. Try guessing my code!"
+        
+        until #insert game over method
+            guess = PlayerInput.get_code
+            feedback = CodeFeedback.call(guess, @secret_code)
+            AnnounceResults.display(feedback, @guess_count, GameConfig::MAX_GUESSES)
+
+            @last_guess = guess
+            @guess_count = +1
+        end
     end
 end
