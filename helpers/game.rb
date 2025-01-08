@@ -11,6 +11,7 @@ class Game
         @secret_code = GenerateCode.generate(GameConfig::VALID_COLORS, GameConfig::CODE_LENGTH)
         @guess_count = 0
         @max_guesses = GameConfig::MAX_GUESSES
+        @last_guess = nil
     end
 
     def start
