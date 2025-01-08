@@ -4,6 +4,7 @@
 require_relative 'config/game_config'
 require_relative 'function/generate_code'
 require_relative 'function/player_input'
+require_relative 'code_feedback'
 require_relative 'function/announce_results'
 
 class Game
