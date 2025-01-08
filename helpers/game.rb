@@ -9,7 +9,7 @@ require_relative 'function/announce_results'
 
 class Game
     def initialize
-        @secret_code = GenerateCode.generate(GameConfig::VALID_COLORS, GameConfig::CODE_LENGTH)
+        @secret_code = nil
         @guess_count = 0
         @max_guesses = GameConfig::MAX_GUESSES
         @last_guess = nil
@@ -23,6 +23,7 @@ class Game
         case @player_role
         when 'breaker'
             puts "Breaker it is. I've though of a 4-color code. Guess the code!"
+            @secret_code = GenerateCode.generate(GameConfig::VALID_COLORS, GameConfig::CODE_LENGTH)
             
             until game_over?
                 guess = PlayerInput.get_code
