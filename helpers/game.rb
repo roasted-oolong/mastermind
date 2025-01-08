@@ -28,6 +28,6 @@ class Game
     end
 
     def game_over?
-        @guess_count >= @max_guesses || @secret_code == @last_guess
+        return false unless @guess_count >= @max_guesses || @secret_code == @last_guess
     end
 end
