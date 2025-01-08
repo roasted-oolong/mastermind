@@ -17,7 +17,7 @@ class Game
         puts "Let's start a game of Mastermind ✨"
         puts "I've though of a 4-color code. Try guessing my code!"
         
-        until #insert game over method
+        until game_over?
             guess = PlayerInput.get_code
             feedback = CodeFeedback.call(guess, @secret_code)
             AnnounceResults.display(feedback, @guess_count, GameConfig::MAX_GUESSES)
@@ -25,5 +25,9 @@ class Game
             @last_guess = guess
             @guess_count = +1
         end
+    end
+
+    def game_over?
+        @guess_count >= @max_guesses || @secret_code == @last_guess
     end
 end
