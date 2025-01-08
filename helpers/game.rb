@@ -21,11 +21,11 @@ class Game
         
         until game_over?
             guess = PlayerInput.get_code
-            feedback = CodeFeedback.call(guess, @secret_code)
-            AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
-
             @last_guess = guess
             @guess_count = +1
+            
+            feedback = CodeFeedback.call(guess, @secret_code)
+            AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
         end
     end
 
