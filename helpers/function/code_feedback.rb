@@ -2,14 +2,25 @@ module CodeFeedback
     def self.call(guess, secret_code)
         exact_matches = 0
         color_matches = 0
+        guess_leftover = []
+        code_leftover = []
 
-        guess.each_with_index do |color, index|
-            if color == secret_code[index]
-                exact_matches += 1
+        def find_exact_matches
+            guess.each_with_index do |color, index|
+                if color == secret_code[index]
+                    exact_matches += 1
+                else
+                    guess_leftover << color
+                    code_leftover << secret_code[index]
+                end
             end
-            
-            if secret_code.include?(color) && secret_code[index] != color
-                color_matches += 1
+        end
+
+        def find_color_matches
+            guess_leftover.each do |color|
+                if code_leftover.include?(color)
+                    color_matches += 1
+                end
             end
         end
 

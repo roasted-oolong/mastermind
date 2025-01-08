@@ -35,5 +35,6 @@ class Game
 
     def end
         AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
+        exit
     end
 end
