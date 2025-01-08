@@ -37,6 +37,12 @@ class Game
         when 'maker'
             puts "Maker it is. You create your code, and I'll guess!"
             @secret_code = PlayerInput.get_code
+            
+            if @last_guess == nil
+                @last_guess = GuessCode.start
+            else
+                #More logic
+            end
 
             puts "More to come! Building in real-time..."
         end
