@@ -6,6 +6,7 @@ require_relative 'function/generate_code'
 require_relative 'function/player_input'
 require_relative 'function/code_feedback'
 require_relative 'function/announce_results'
+require_relative 'function/guess_code'
 
 class Game
     def initialize
