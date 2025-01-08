@@ -39,7 +39,7 @@ class Game
             @secret_code = PlayerInput.get_code
             
             if @last_guess == nil
-                @last_guess = GuessCode.start
+                @last_guess = GenerateCode.same_four(GameConfig::VALID_COLORS)
             else
                 #More logic
             end
