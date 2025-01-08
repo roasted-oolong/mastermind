@@ -26,6 +26,7 @@ class Game
             @secret_code = GenerateCode.generate(GameConfig::VALID_COLORS, GameConfig::CODE_LENGTH)
             
             until game_over?
+                puts "Enter your guess"
                 guess = PlayerInput.get_code
                 @last_guess = guess
                 @guess_count += 1
@@ -36,7 +37,7 @@ class Game
         when 'maker'
             puts "Maker it is. You create your code, and I'll guess!"
             @secret_code = PlayerInput.get_code
-            
+
             puts "More to come! Building in real-time..."
         end
     end
