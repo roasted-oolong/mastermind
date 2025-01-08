@@ -6,7 +6,7 @@ module PlayerInput
         puts "Colors: #{GameConfig::VALID_COLORS.join(', ')}"
         input = gets.chomp.downcase.split
 
-        valid_input?(input) ? input : get
+        valid_input?(input) ? input : get_code
     end
 
     def self.valid_input?(input)
