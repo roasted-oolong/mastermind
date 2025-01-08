@@ -14,7 +14,7 @@ class Game
         @last_guess = nil
     end
 
-    def start
+    def play
         puts "Let's start a game of Mastermind ✨"
         puts "I've though of a 4-color code. Try guessing my code!"
         
