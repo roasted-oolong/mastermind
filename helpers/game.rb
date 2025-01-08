@@ -34,7 +34,10 @@ class Game
                 AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
             end
         when 'maker'
-            puts "Feature coming soon!"
+            puts "Maker it is. You create your code, and I'll guess!"
+            @secret_code = PlayerInput.get_code
+            
+            puts "More to come! Building in real-time..."
         end
     end
 
