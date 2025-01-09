@@ -31,7 +31,7 @@ class Game
                 @last_guess = PlayerInput.get_code
                 @guess_count += 1
 
-                CodeFeedback.player_code(@last_guess, @secret_code)
+                CodeFeedback.call(@last_guess, @secret_code, @player_role)
                 AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
             end
         when 'maker'
@@ -41,7 +41,7 @@ class Game
             if @last_guess == nil
                 @last_guess = GenerateCode.same_four(GameConfig::VALID_COLORS)
             else
-                #More logic
+                match_count = CodeFeedback.call(@last_guess, @secret_code, @player_role)
             end
 
             puts "More to come! Building in real-time..."
