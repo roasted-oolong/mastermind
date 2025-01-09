@@ -42,6 +42,7 @@ class Game
                 @last_guess = GenerateCode.same_four(GameConfig::VALID_COLORS)
             else
                 match_count = CodeFeedback.call(@last_guess, @secret_code, @player_role)
+                @guess_count += 1
             end
 
             puts "More to come! Building in real-time..."
