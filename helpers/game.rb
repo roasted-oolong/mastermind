@@ -41,6 +41,8 @@ class Game
             if @last_guess == nil
                 @last_guess = GenerateCode.same_four(GameConfig::VALID_COLORS)
                 @guess_count += 1
+
+                puts "Computer guessed: #{@last_guess.join(' ')}"
             end
 
             until game_over?           
