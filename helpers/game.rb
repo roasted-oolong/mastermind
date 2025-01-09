@@ -44,7 +44,7 @@ class Game
             end
 
             until end_game?           
-              match_count = PlayerInput.feedback #Human player gives computer feedback on its guess
+              match_count = PlayerInput.feedback(@last_guess, @secret_code) #Human player gives computer feedback on its guess
               @last_guess = GuessCode.guess(match_count)
               @guess_count += 1
 
