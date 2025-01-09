@@ -1,5 +1,5 @@
 module CodeFeedback
-    def self.player_code(guess, secret_code)
+    def self.player_code(guess, secret_code, player_role)
         exact_matches = 0
         color_matches = 0
         guess_leftover = []
@@ -23,7 +23,12 @@ module CodeFeedback
             end
         end
 
-        puts "Red pegs: #{exact_matches}"
-        puts "White pegs: #{color_matches}"
+        case player_role
+        when 'breaker'
+            puts "Red pegs: #{exact_matches}"
+            puts "White pegs: #{color_matches}"
+        when 'maker'
+            return [`#{exact_matches}, #{color_matches}`]
+        end
     end
 end
