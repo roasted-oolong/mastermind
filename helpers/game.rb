@@ -13,7 +13,7 @@ class Game
         @secret_code = nil
         @guess_count = 0
         @max_guesses = GameConfig::MAX_GUESSES
-        @last_guess = nil
+        @last_guess = 'None'
         @player_role = nil
     end
 
@@ -37,18 +37,18 @@ class Game
         when 'maker'
             puts "Maker it is. You create your code, and I'll guess!"
             @secret_code = PlayerInput.get_code
+
+            #First Guess
+            @last_guess = GenerateCode.same_four(GameConfig::VALID_COLORS)
+            @guess_count += 1
             
-            if @last_guess == nil
-                @last_guess = GenerateCode.same_four(GameConfig::VALID_COLORS)
-                @guess_count += 1
-            else
-                until game_over?           
+            until game_over?
+                puts "#{@last_guess}"
                 match_count = PlayerInput.feedback(@last_guess, @secret_code) #Human player gives computer feedback on its guess
                 @last_guess = GuessCode.guess(match_count)
                 @guess_count += 1
 
                 AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
-                end
             end
 
             puts "More to come! Building in real-time..."
