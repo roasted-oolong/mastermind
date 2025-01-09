@@ -29,4 +29,20 @@ module PlayerInput
         puts "Type 'breaker' or 'maker'"
         player_role = gets.chomp.downcase
     end
+
+    def self.feedback(guess, secret_code)
+      exact_matches = 0
+      color_matches = 0
+      
+      puts "__ Your secret code: #{secret_code} __"
+      puts "__ Computer's guess: #{guess} __"
+    
+      puts "How many colors are exactly correct?"
+      exact_matches = gets.chomp.to_i
+
+      puts "How many colors are correct but not in the right position?"
+      color_matches = gets.chomp.to_i
+
+      return [`#{exact_matches}, #{color_matches}`]
+    end
 end

@@ -23,12 +23,7 @@ module CodeFeedback
             end
         end
 
-        case player_role
-        when 'breaker'
-            puts "Red pegs: #{exact_matches}"
-            puts "White pegs: #{color_matches}"
-        when 'maker'
-            return [`#{exact_matches}, #{color_matches}`]
-        end
+        puts "Red pegs: #{exact_matches}"
+        puts "White pegs: #{color_matches}"
     end
 end
