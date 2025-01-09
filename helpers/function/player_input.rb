@@ -34,8 +34,8 @@ module PlayerInput
       exact_matches = 0
       color_matches = 0
       
-      puts "__ Your secret code: #{secret_code} __"
       puts "__ Computer's guess: #{guess} __"
+      puts "__ Your secret code: #{secret_code} __"
     
       puts "How many colors are exactly correct?"
       exact_matches = gets.chomp.to_i
