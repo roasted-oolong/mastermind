@@ -1,5 +1,5 @@
 module CodeFeedback
-    def self.call(guess, secret_code)
+    def self.player_code(guess, secret_code)
         exact_matches = 0
         color_matches = 0
         guess_leftover = []

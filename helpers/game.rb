@@ -31,7 +31,7 @@ class Game
                 @last_guess = PlayerInput.get_code
                 @guess_count += 1
 
-                CodeFeedback.call(@last_guess, @secret_code)
+                CodeFeedback.player_code(@last_guess, @secret_code)
                 AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
             end
         when 'maker'
