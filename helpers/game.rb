@@ -41,16 +41,14 @@ class Game
             if @last_guess == nil
                 @last_guess = GenerateCode.same_four(GameConfig::VALID_COLORS)
                 @guess_count += 1
+            else
+                until game_over?           
+                match_count = PlayerInput.feedback(@last_guess, @secret_code) #Human player gives computer feedback on its guess
+                @last_guess = GuessCode.guess(match_count)
+                @guess_count += 1
 
-                puts "Computer guessed: #{@last_guess.join(' ')}"
-            end
-
-            until game_over?           
-              match_count = PlayerInput.feedback(@last_guess, @secret_code) #Human player gives computer feedback on its guess
-              @last_guess = GuessCode.guess(match_count)
-              @guess_count += 1
-
-              AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
+                AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)
+                end
             end
 
             puts "More to come! Building in real-time..."
