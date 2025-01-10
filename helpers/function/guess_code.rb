@@ -1,7 +1,7 @@
 require_relative 'generate_code'
 
 module GuessCode
-    def guess(guess, match_count, valid_colors) #number of exact matches + number of color matches
+    def self.guess(guess, match_count, valid_colors) #number of exact matches + number of color matches
       case guess
       when match_count == 0
         new_guess = guess.map { valid_colors[1] }
