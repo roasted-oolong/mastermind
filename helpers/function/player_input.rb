@@ -43,6 +43,6 @@ module PlayerInput
       puts "How many colors are correct but not in the right position?"
       color_matches = gets.chomp.to_i
 
-      return `#{exact_matches} + #{color_matches}`
+      return exact_matches + color_matches
     end
 end
