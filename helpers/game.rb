@@ -45,7 +45,7 @@ class Game
             until game_over?
                 puts "#{@last_guess}"
                 match_count = PlayerInput.feedback(@last_guess, @secret_code) #Human player gives computer feedback on its guess
-                @last_guess = GuessCode.guess(@last_guess, match_count)
+                @last_guess = GuessCode.guess(@last_guess, match_count, GameConfig::VALID_COLORS)
                 @guess_count += 1
 
                 AnnounceResults.display(@last_guess, @secret_code, @max_guesses, @guess_count)

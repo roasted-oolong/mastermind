@@ -1,8 +1,7 @@
-require_relative '../config/game_config'
 require_relative 'generate_code'
 
 module GuessCode
-    def guess(guess, match_count) #number of exact matches + number of color matches
+    def guess(guess, match_count, valid_colors) #number of exact matches + number of color matches
       case guess
       when match_count == 0
         #continue to the next color in "VALID_COLORS"
